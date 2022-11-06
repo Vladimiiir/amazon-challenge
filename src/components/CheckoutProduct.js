@@ -3,6 +3,7 @@ import "../styles/CheckoutProduct.css";
 import { useStateValue } from "../StateProvider/StateProvider";
 
 function CheckoutProduct(props) {
+  // calling the dataLayer
   const [{ basket }, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
@@ -17,7 +18,7 @@ function CheckoutProduct(props) {
       <img className="checkoutProduct__image" src={props.image} />
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{props.title}</p>
-        <small>$</small>
+        <small>AED </small>
         <strong>{props.price}</strong>
         <div className="checkoutProduct__rating">
           {Array(props.rating)
@@ -27,9 +28,14 @@ function CheckoutProduct(props) {
               <p>⭐️</p>
             ))}
         </div>
-        <button onClick={removeFromBasket} className="checkoutProduct__button">
-          Remove from Basket
-        </button>
+        {!props.hideButton && (
+          <button
+            onClick={removeFromBasket}
+            className="checkoutProduct__button"
+          >
+            Remove from Basket
+          </button>
+        )}
       </div>
     </div>
   );

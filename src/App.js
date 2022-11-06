@@ -2,12 +2,22 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Checkout from "./components/Checkout";
-import { Routes, Route, Link } from "react-router-dom";
 import Login from "./components/Login";
-import { useEffect } from "react";
+import Payment from "./components/Payment";
+import Orders from "./components/Orders";
+import { Routes, Route, Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import { auth } from "./firebase/Firebase";
 import { useStateValue } from "./StateProvider/StateProvider";
-import React from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+  "pk_test_51Lzk9UJoJ8eS77pj2T8CX109svzNVbXZfOD26r5wSs14WUjqfnl1njzeB77w4psiljyfJpgD7K8K977cVNlmsiqJ002dSYvsQx",
+  {
+    locale: "en",
+  }
+);
 
 function App() {
   const [{ basket }, dispatch] = useStateValue();
@@ -46,6 +56,15 @@ function App() {
           }
         />
         <Route
+          path="/orders"
+          element={
+            <>
+              <Header />
+              <Orders />
+            </>
+          }
+        />
+        <Route
           path="/"
           element={
             <>
@@ -60,6 +79,17 @@ function App() {
             <>
               <Header />
               <Checkout />
+            </>
+          }
+        />
+        <Route
+          path="/payment"
+          element={
+            <>
+              <Header />
+              <Elements stripe={promise}>
+                <Payment />
+              </Elements>
             </>
           }
         />

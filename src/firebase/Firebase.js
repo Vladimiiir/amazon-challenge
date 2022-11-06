@@ -5,6 +5,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+// import { getApp } from "firebase/app";
+// import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAzI7-Z5l4oTfRvuYr15RHfgHKYBHvY1ws",
@@ -20,5 +22,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
+// const functions = getFunctions(getApp());
+// connectFunctionsEmulator(functions, "localhost", 5001);
 
 export { db, auth };

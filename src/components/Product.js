@@ -3,6 +3,7 @@ import "../styles/Product.css";
 import { useStateValue } from "../StateProvider/StateProvider";
 
 function Product(props) {
+  // calling the dataLayer
   const [{ basket }, dispatch] = useStateValue();
   // console.log("this is the basket >>>", basket);
 
@@ -24,7 +25,7 @@ function Product(props) {
       <div className="product__info">
         <p>{props.title}</p>
         <p className="product__price">
-          <small>$</small>
+          <small>AED</small>
           <strong>{props.price}</strong>
         </p>
         <div className="product__rating">

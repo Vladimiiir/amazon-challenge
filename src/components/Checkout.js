@@ -5,6 +5,7 @@ import { useStateValue } from "../StateProvider/StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 
 function Checkout() {
+  // calling the dataLayer
   const [{ basket, user }, dispatch] = useStateValue();
 
   return (

@@ -1,5 +1,5 @@
 .checkoutProduct {
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -28,6 +28,7 @@
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
   margin-bottom: 10px;
+  font-family: "Amazon Ember";
 }
 
 .checkoutProduct__title {
